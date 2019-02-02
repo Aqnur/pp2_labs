@@ -9,10 +9,10 @@ namespace task2
     class Student
     {
         public string name;
-        public string id;
+        public int id;
         public string yearOfStudy;
 
-        public Student(string name, string id, string yearOfStudy)
+        public Student(string name, int id, string yearOfStudy)
         {
             this.name = name;
             this.id = id;
@@ -22,7 +22,7 @@ namespace task2
         public Student()
         {
             name = Console.ReadLine();
-            id = Console.ReadLine();
+            id = Convert.ToInt32(Console.ReadLine());
             yearOfStudy = Console.ReadLine();
         }
 

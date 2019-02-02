@@ -37,7 +37,7 @@ namespace task1
         static bool IsPrime(int num) //bool function to find primes
         {
             if (num <= 1) return false; //if less or equal 1 not prime
-            for (int i = 2; i <= Math.Sqrt(num); i += 2) //loop to find not prime numbers if it is divisible not for itself and 1 false 
+            for (int i = 2; i <= Math.Sqrt(num); i++) //loop to find not prime numbers if it is divisible not for itself and 1 false 
             {
                 if (num % i == 0)
                 {

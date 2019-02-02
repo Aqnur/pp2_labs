@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace task1
 {
@@ -10,7 +11,7 @@ namespace task1
     {
         static void Main(string[] args)
         {
-            string s = Console.ReadLine();
+            string s = File.ReadAllText(@"C:\Aknur\test\input.txt");
             if (IsPalindrome(s))
             {
                 Console.WriteLine("Yes");
