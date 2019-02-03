@@ -11,11 +11,37 @@ namespace task3
     {
         static void Main(string[] args)
         {
-            DirectoryInfo dirInfo = new DirectoryInfo(@"C:\Aknur\test");
+            int cnt = 0;
+            DirectoryInfo dirInfo = new DirectoryInfo(@"C:\aknur\test");
             var x = dirInfo.GetFileSystemInfos();
-            foreach(var y in x)
+            foreach (var y in x)
             {
+                cnt++;
+            }
+
+            Director(dirInfo, cnt);
+        }
+
+        public static void Director(DirectoryInfo dir, int tab)
+        {
+            foreach (DirectoryInfo y in dir.GetDirectories())
+            {
+                tabul(tab);
                 Console.WriteLine(y.Name);
+                Director(y, tab + 1);
+            }
+            foreach (FileInfo x in dir.GetFiles())
+            {
+                tabul(tab);
+                Console.WriteLine(x.Name);
+            }
+        }
+
+        public static void tabul(int tab)
+        {
+            for(int i = 0; i < tab; i++)
+            {
+                Console.Write("     ");
             }
         }
     }
