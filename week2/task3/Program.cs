@@ -12,13 +12,7 @@ namespace task3
         static void Main(string[] args)
         {
             int cnt = 0;
-            DirectoryInfo dirInfo = new DirectoryInfo(@"C:\aknur\test");
-            var x = dirInfo.GetFileSystemInfos();
-            foreach (var y in x)
-            {
-                cnt++;
-            }
-
+            DirectoryInfo dirInfo = new DirectoryInfo(@"C:\Users\aknur\Desktop\pp2");
             Director(dirInfo, cnt);
         }
 
