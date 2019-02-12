@@ -11,15 +11,14 @@ namespace task4
         static void Main(string[] args)
         {
             int n = Convert.ToInt32(Console.ReadLine());
-            string[,] s = new string[n, n];
+            string[,] s = new string[n, n]; //creating an array
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j <= i; j++)
                 {
-                    s[i, j] = "[*]";
-                    Console.Write(s[i, j]);
+                    s[i, j] = "[*]"; 
+                    Console.Write(s[i, j]); //output arrays elements 
                 }
-
                 Console.WriteLine();
             }
         }

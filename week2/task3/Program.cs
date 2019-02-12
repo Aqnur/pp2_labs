@@ -11,27 +11,26 @@ namespace task3
     {
         static void Main(string[] args)
         {
-            int cnt = 0;
-            DirectoryInfo dirInfo = new DirectoryInfo(@"C:\Users\aknur\Desktop\pp2");
-            Director(dirInfo, cnt);
+            DirectoryInfo dirInfo = new DirectoryInfo(@"C:\Users\aknur\Desktop\pp2"); //path of folder
+            Director(dirInfo, 0); //use the function
         }
 
-        public static void Director(DirectoryInfo dir, int tab)
+        public static void Director(DirectoryInfo dir, int tab) //fuction to output list of directories and files
         {
             foreach (DirectoryInfo y in dir.GetDirectories())
             {
-                tabul(tab);
-                Console.WriteLine(y.Name);
-                Director(y, tab + 1);
+                tabul(tab); //use the tabul func
+                Console.WriteLine(y.Name); //output names of folders
+                Director(y, tab + 1); //useing recurtion repeat while the directories ends
             }
-            foreach (FileInfo x in dir.GetFiles())
+            foreach (FileInfo x in dir.GetFiles()) 
             {
-                tabul(tab);
-                Console.WriteLine(x.Name);
+                tabul(tab); //adds spaces to file
+                Console.WriteLine(x.Name); // outputs names of files
             }
         }
 
-        public static void tabul(int tab)
+        public static void tabul(int tab) //function to add spaces
         {
             for(int i = 0; i < tab; i++)
             {
