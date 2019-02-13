@@ -19,18 +19,18 @@ namespace task3
         {
             foreach (DirectoryInfo y in dir.GetDirectories())
             {
-                tabul(tab); //use the tabul func
+                tabs(tab); //use the tabul func
                 Console.WriteLine(y.Name); //output names of folders
                 Director(y, tab + 1); //useing recurtion repeat while the directories ends
             }
             foreach (FileInfo x in dir.GetFiles()) 
             {
-                tabul(tab); //adds spaces to file
+                tabs(tab); //adds spaces to file
                 Console.WriteLine(x.Name); // outputs names of files
             }
         }
 
-        public static void tabul(int tab) //function to add spaces
+        public static void tabs(int tab) //function to add spaces
         {
             for(int i = 0; i < tab; i++)
             {

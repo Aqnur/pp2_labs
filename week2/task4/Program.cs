@@ -12,11 +12,15 @@ namespace task4
         static void Main(string[] args)
         {
             Console.WriteLine("Write a name of your file with extention"); // some text
+
             string name = Console.ReadLine(); //input the name of the new file
-            string NewPath = @"C:\Users\aknur\Desktop\path\"; //the path
-            string path = NewPath + name; //adding the name of file to path
-            string NewPath1 = @"C:\Users\aknur\Desktop\path1\"; //path1
-            string path1 = NewPath1 + name; //adding the name of file to path1
+
+            string NewPath = @"C:\Users\aknur\Desktop\path"; //the path
+            string NewPath1 = @"C:\Users\aknur\Desktop\path1"; //path1
+
+            string path = Path.Combine(NewPath, name); //adding the name of file to path
+            string path1 = Path.Combine(NewPath1, name); //adding the name of file to path1
+
             bool flag = true; //bool flag which is true
 
             if (!File.Exists(path)) //if doesnt file exists
@@ -31,6 +35,7 @@ namespace task4
                 if (press.Key == ConsoleKey.C) //if user presses 'C' then this file will move to path1
                 {
                     moving(path, path1); //uses the function 
+                    Console.WriteLine("File was moved to path1");
                 }
                 else
                 {
@@ -44,6 +49,7 @@ namespace task4
                 if (press2.Key == ConsoleKey.C) //if pressed c then move created file to path 1
                 {
                     moving(path, path1); //use func
+                    Console.WriteLine("File was moved to path1");
                 }
                 else
                 {
