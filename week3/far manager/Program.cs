@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace FarManager
 {
@@ -68,6 +68,10 @@ namespace FarManager
                 if (curMode == FSIMode.DirectoryInfo)
                 {
                     history.Peek().Draw();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.WriteLine("\nDelete: Del  Rename: F4");
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
                 ConsoleKeyInfo consoleKeyInfo = Console.ReadKey();
                 switch (consoleKeyInfo.Key) //switch case to bind keys to some functions as like if func
@@ -120,14 +124,16 @@ namespace FarManager
                     case ConsoleKey.Delete: //delete file or folder
                         int indexDel = history.Peek().SelectedIndex;
                         FileSystemInfo fsiDel = history.Peek().Content[indexDel];
-                        string pathDelete = dir + @"\" + fsiDel; //the path
                         if(fsiDel.GetType() == typeof(DirectoryInfo))//finds if folder of file
                         {
-                            Directory.Delete(pathDelete); //delets
+                            string pathDel = fsiDel.FullName;
+                            Directory.Delete(pathDel, true); //delets
+
                         }
                         else
                         {
-                            File.Delete(pathDelete);//delets
+                            string pathFile = fsiDel.FullName;
+                            File.Delete(pathFile);//delets
                         }
                         history.Push(new Layer //push as new layer
                         {
