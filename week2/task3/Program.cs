@@ -11,7 +11,7 @@ namespace task3
     {
         static void Main(string[] args)
         {
-            DirectoryInfo dirInfo = new DirectoryInfo(@"C:\Users\aknur\Desktop\pp2"); //path of folder
+            DirectoryInfo dirInfo = new DirectoryInfo(@"C:\Users\aknur\Desktop\CN"); //path of folder
             Director(dirInfo, 0); //use the function
         }
 

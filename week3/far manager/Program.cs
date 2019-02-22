@@ -11,7 +11,6 @@ namespace FarManager
     {
         DirectoryInfo = 1,
         File = 2,
-        Rename = 3
     }
 
     class Layer
