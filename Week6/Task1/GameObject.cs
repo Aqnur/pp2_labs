@@ -34,9 +34,9 @@ namespace Task1
 
         public void Draw()
         {
-            foreach(Point p in body)
+            for(int i = 0; i < body.Count; i++)
             {
-                Console.SetCursorPosition(p.X, p.Y);
+                Console.SetCursorPosition(body[i].X, body[i].Y);
                 Console.Write(sign);
             }
         }

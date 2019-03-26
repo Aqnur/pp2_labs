@@ -14,7 +14,7 @@ namespace Task1
         }
         public Worm(char sign) : base(sign)
         {
-            body.Add(new Point { X = 20, Y = 20 });
+            body.Add(new Point { X = 20, Y = 17 });
             Dx = Dy = 0;
         }
 
@@ -32,8 +32,6 @@ namespace Task1
 
         public void Move()
         {
-            Clear();
-
             for (int i = body.Count - 1; i > 0; --i)
             {
                 body[i].X = body[i - 1].X;
@@ -44,7 +42,7 @@ namespace Task1
             body[0].Y = body[0].Y + Dy;
         }
 
-        public bool CheckCol(List<Point> points)
+        public bool CheckCollision(List<Point> points)
         {
             bool res = false;
             foreach(Point p in points)

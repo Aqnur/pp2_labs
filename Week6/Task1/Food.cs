@@ -14,32 +14,17 @@ namespace Task1
         }
         public Food(char sign) : base(sign)
         {
-
+            Generate();
         }
-        public void GenerateLocation(List<Point> wormbody, List<Point> wallbody)
+        public void Generate()
         {
-            body.Clear();
             Random random = new Random(DateTime.Now.Second);
-            Point p = new Point(random.Next(0, 39), random.Next(0, 39));
-            while (!IsGoodPoint(p, wormbody) || !IsGoodPoint(p, wallbody))
+            body.Clear();
+            body.Add(new Point
             {
-                p = new Point(random.Next(0, 39), random.Next(0, 39));
-            }
-            body.Add(p);
-        }
-
-        public bool IsGoodPoint(Point p, List<Point> points)
-        {
-            bool res = true;
-            foreach (Point t in points)
-            {
-                if (p.X == t.X && p.Y == t.Y)
-                {
-                    res = false;
-                    break;
-                }
-            }
-            return res;
+                X = random.Next(1, 39),
+                Y = random.Next(1, 34)
+            });
         }
     }
 }

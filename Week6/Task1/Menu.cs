@@ -32,7 +32,7 @@ namespace Task1
                         break;
                     case ConsoleKey.Enter:
                         if (pos != 2) break;
-//                        ShowLeaderboards();
+                       // ShowLeaderboards();
                         break;
                 }
             }

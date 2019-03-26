@@ -25,15 +25,7 @@ namespace Task1
             Console.SetBufferSize(40, 40);
             Console.CursorVisible = false;
         }
-
-        public void Draw()
-        {
-            Console.ForegroundColor = ConsoleColor.Black;
-            f.GenerateLocation(w.body, b.body);
-            w.Draw();
-            b.Draw();
-        }
-
+        
         public void Save()
         {
             using (FileStream fileStream = new FileStream("game.xml", FileMode.Create, FileAccess.Write))
@@ -75,6 +67,7 @@ namespace Task1
         {
             Console.SetCursorPosition(0, 37);
             Console.WriteLine(DateTime.Now.Second);
+            
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
@@ -82,23 +75,49 @@ namespace Task1
             w.Clear();
             w.Move();
             w.Draw();
+            f.Draw();
 
-            CheckCollision();
+            WallCollision();
+            FoodCollision();
+            Score();
+            Info();
         }
 
-        void CheckCollision()
+        void WallCollision()
         {
-            if (w.CheckCol(b.body))
+            if (w.CheckCollision(b.body))
             {
-                
+                GameOver();
             }
-            else if (w.CheckCol(f.body))
+        }
+        public int score = 0;
+        
+        void FoodCollision()
+        {
+            if (w.CheckCollision(f.body))
             {
                 w.Eat(f.body);
-                f.GenerateLocation(w.body, b.body);
+                f.Generate();
                 f.Draw();
+                score++;
             }
-        } 
+        }
+
+        void Info()
+        {
+            Console.SetCursorPosition(20, 37);
+            Console.Write("F2 - save");
+            Console.SetCursorPosition(20, 38);
+            Console.Write("F3 - reset game");
+            Console.SetCursorPosition(20, 39);
+            Console.Write("SPACE - pause");
+        }
+
+        public void Score()
+        {
+            Console.SetCursorPosition(0, 38);
+            Console.Write("Score - " + score);
+        }
 
         public void PressedKey(ConsoleKeyInfo consoleKeyInfo)
         {
@@ -129,11 +148,12 @@ namespace Task1
             }
         }
         
-        public GameOver()
+        public void GameOver()
         {
             Console.Clear();
             Console.SetCursorPosition(20, 20);
             Console.Write("Game Over!");
+            timer.Enabled = !timer.Enabled;
         }
     }
 }

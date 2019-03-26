@@ -47,9 +47,9 @@ namespace Task1
             {
                 if (value < 0)
                 {
-                    y = 39;
+                    y = 34;
                 }
-                else if (value >= 40)
+                else if (value >= 35)
                 {
                     y = 0;
                 }

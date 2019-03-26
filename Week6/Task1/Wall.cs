@@ -9,13 +9,14 @@ namespace Task1
 {
     public class Wall : GameObject
     {
+        public int lvl = 1;
         public Wall() : base()
         {
 
         }
         public Wall(char sign) : base(sign)
         {
-            LoadLevel(1);
+            LoadLevel(lvl);
         }
 
         public void LoadLevel(int level)
