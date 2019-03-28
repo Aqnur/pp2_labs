@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace task3
 {
@@ -10,6 +11,7 @@ namespace task3
     {
         static void Main(string[] args)
         {
+            
         }
     }
 }

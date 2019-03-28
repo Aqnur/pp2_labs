@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace task1
@@ -10,11 +11,20 @@ namespace task1
     {
         static void Main(string[] args)
         {
-            
+            Thread[] thread = new Thread[3];
+            for (int i = 0; i < 3; i++)
+            {
+                thread[i] = new Thread(CurThreadName);
+                thread[i].Name = ("Thread " + i).ToString();
+                thread[i].Start();
+            }
         }
-        static void Task1()
+        static void CurThreadName()
         {
-
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine(Thread.CurrentThread.Name);
+            }
         }
     }
 }
