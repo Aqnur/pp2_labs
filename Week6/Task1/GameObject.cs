@@ -8,14 +8,27 @@ using System.Xml.Serialization;
 
 namespace Task1
 {
+    [Serializable]
     public class GameObject
     {
+        public Worm worm;
+        public Wall wall;
+        public Food food;
+        public int score;
+        public int level;
+        public bool Gameover;
+        
         public List<Point> body = new List<Point>();
         public char sign;
 
         public GameObject()
         {
-
+            worm = Data.worm;
+            wall = Data.wall;
+            food = Data.food;
+            Gameover = Data.Gameover;
+            level = Data.level;
+            score = Data.score;
         }
 
         public GameObject(char sign)

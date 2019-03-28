@@ -13,8 +13,8 @@ namespace Task1
         static void Main(string[] args)
         {
 
-            GameState gameState = new GameState();
-            gameState.Run();
+            Game game = new Game();
+            game.Run();
 
             while (true)
             {
@@ -22,15 +22,15 @@ namespace Task1
                 switch (consoleKeyInfo.Key)
                 {
                     case ConsoleKey.F2:
-                        gameState.Save();
+                        game.Save();
                         break;
                     case ConsoleKey.F3:
-                        gameState.Reset();
-                        gameState = gameState.Load();
-                        gameState.Run();
+                        game.Reset();
+                        game = game.Load();
+                        game.Run();
                         break;
                     default:
-                        gameState.PressedKey(consoleKeyInfo);
+                        game.PressedKey(consoleKeyInfo);
                         break;
                 }
             }

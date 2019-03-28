@@ -43,10 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data.cs" />
     <Compile Include="Food.cs" />
     <Compile Include="GameObject.cs" />
-    <Compile Include="GameState.cs" />
-    <Compile Include="Menu.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Program.cs" />

@@ -11,10 +11,10 @@ namespace Task1
     {
         public string username;
         public int score;
-        public Player(string username, int score)
+        public Player(string _username, int _score)
         {
-            this.username = username;
-            this.score = score;
+            username = _username;
+            score = _score;
         }
     }
 }
