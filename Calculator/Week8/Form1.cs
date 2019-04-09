@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -165,6 +166,48 @@ namespace Week8
                 res *= i;
             }
             return res;
+        }
+
+        private void Memory(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            switch (button.Text)
+            {
+                case "MS":
+                    memoryset(textBox_result.Text);
+                    break;
+                case "MC":
+                    textBox_result.Text = memoryget();
+                    break;
+                case "MR":
+                    memoryset("0");
+                    break;
+                case "+M":
+                    memoryset((Convert.ToDouble(memoryget()) + Convert.ToDouble(textBox_result.Text)).ToString());
+                    break;
+                case "-M":
+                    memoryset((Convert.ToDouble(memoryget()) - Convert.ToDouble(textBox_result.Text)).ToString());
+                    break;
+                default:
+                    break;
+            }
+        }
+        string memoryget()
+        {
+            FileStream fs = new FileStream(@"mem.txt", FileMode.OpenOrCreate, FileAccess.Read);
+            StreamReader sr = new StreamReader(fs);
+            string s = sr.ReadLine();
+            sr.Close();
+            fs.Close();
+            return s;
+        }
+        void memoryset(string s)
+        {
+            FileStream fs = new FileStream(@"mem.txt", FileMode.OpenOrCreate, FileAccess.Write);
+            StreamWriter sw = new StreamWriter(fs);
+            sw.WriteLine(s);
+            sw.Close();
+            fs.Close();
         }
     }
 }
